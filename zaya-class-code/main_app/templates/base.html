@@ -3,33 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Zaya Nutrition</title>
     {% block head %}{% endblock head %}
 </head>
 <body>
     <nav>
         <a href="/">Homepage</a>
         <a href="/about">About Us</a>
-                {% if user.is_authenticated %}
-<a href="/profile">Profile</a>
-        <a href="/plans">All Plans</a>
-        <span>Welcome {{user.username}}</span>
-  <form method='post' action="/auth/logout/">
 
-            {% csrf_token %}
-            <button>Log Out</button>
+        {% if user.is_authenticated %}
+            <a href="/plans">My Nutrition Plan</a>
 
+            {% if user.profile %}
+                <a href="{% url 'profile_update' user.profile.pk %}">Edit Profile</a>
             {% else %}
+<a href="{% url 'profile' %}">Set Up Profile</a>
+            {% endif %}
+
+            <span>Welcome, {{ user.username }}</span>
+
+            <form method="post" action="/auth/logout/" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Log Out</button>
+            </form>
+        {% else %}
             <a href="/auth/login">Login</a>
             <a href="/sign-up">Signup</a>
-            {% endif %}
-        </form>
-        </nav>
-    {% block content %}
+        {% endif %}
+    </nav>
 
-
-
-
+    <hr> {% block content %}
     {% endblock content %}
 </body>
 </html>

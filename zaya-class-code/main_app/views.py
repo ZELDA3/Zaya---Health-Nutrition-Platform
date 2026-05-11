@@ -29,7 +29,17 @@ class ProfileCreateView(LoginRequiredMixin, CreateView):
     model = Profile
     form_class = ProfileForm
     template_name = "profiles/profile-form.html"
-    success_url = "/"
+    success_url = "/plans/"  # Send them to see their new plan!
+
+    def form_valid(self, form):
+        # Link the profile to the logged-in user
+        form.instance.user = self.request.user
+        profile = form.save()
+
+        # TRIGGER THE LOGIC: Generate the plan immediately
+        generate_user_plan(self.request.user, profile)
+
+        return super().form_valid(form)
 
 
 # Update Profile (U in CRUD)
