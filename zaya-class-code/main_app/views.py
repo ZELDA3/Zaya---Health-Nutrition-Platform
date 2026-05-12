@@ -107,6 +107,12 @@ class GroupListView(LoginRequiredMixin, ListView):
     context_object_name = "groups"
 
 
+class FoodListView(LoginRequiredMixin, ListView):
+    model = Food
+    template_name = "foods/food-items.html"
+    context_object_name = "foods"
+
+
 # -- THE LOGIC ENGINE --
 def generate_user_plan(user, profile):
     # 1. Select Template

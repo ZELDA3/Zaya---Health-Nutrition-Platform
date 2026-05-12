@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+
+
+
+{% endblock head %}
+
+
+
+{% block content %}
+
+<h1>Our Meals:</h1>
+
+
+
+{% for food in foods %}
+
+<p>Name: {{food.name}}</p>
+<p>Calories: {{food.calories}}</p>
+<p>Ingredients: {{food.ingredients}}</p>
+<p>Image: {{food.image}}</p>
+
+
+<hr>
+{% endfor %}
+{% endblock content %}
+
+
+

@@ -32,4 +32,5 @@ urlpatterns = [
         name="plan_delete",
     ),
     path("groups/", views.GroupListView.as_view()),
+    path("foods/", views.FoodListView.as_view()),
 ]
