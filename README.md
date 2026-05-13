@@ -46,19 +46,19 @@ So what are you waiting for? Join ZAYA today and start your journey!
 ### How does the website look like?
 
 **About-Us Page:**
-![About-Us Page](zaya-class-code/assests/about.jpeg)
+![About-Us Page](zaya_class_code/assests/about.jpeg)
 
 
 
 **Wellness-Group Page:**
-![Wellness-Group Page](zaya-class-code/assests/wellness.jpeg)
+![Wellness-Group Page](zaya_class_code/assests/wellness.jpeg)
 
 
 **Meal-Items Page:**
-![Meal-Items Page](zaya-class-code/assests/meal.jpeg)
+![Meal-Items Page](zaya_class_code/assests/meal.jpeg)
 
 ##### ERD
-![ERD](zaya-class-code/assests/zayaerd.jpg)
+![ERD](zaya_class_code/assests/zayaerd.jpg)
 
 
 ### ***Future Updates***
