@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if form.instance.id %}
+    <h1>Edit Profile</h1>
+{% else %}
+    <h1>Create Profile</h1>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    {% if form.instance.id %}
+        <button type="submit" class="btn btn-success">Update Profile Details</button>
+
+    {% else %}
+        <button type="submit">Create A New Profile</button>
+    {% endif %}
+</form>
+
+<hr>
+
+{% if form.instance.id %}
+    <div style="margin-top: 20px;">
+        <p>delete your profile</p>
+        <form method="post" action="{% url 'profile_delete' form.instance.pk %}">
+            {% csrf_token %}
+            <button type="submit" style="color: white; background-color: red; border: none; padding: 10px;">
+                Delete Profile
+            </button>
+        </form>
+    </div>
+
+
+
+{% endif %}
+
+{% endblock content %}

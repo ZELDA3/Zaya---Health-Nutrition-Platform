@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if form.instance.id %}
+    <h1>Edit Plan</h1>
+{% else %}
+    <h1>Create a Customized Plan</h1>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    {% if form.instance.id %}
+        <button type="submit" class="btn btn-success">Update Plan Details</button>
+
+    {% else %}
+        <button type="submit">Create A New Plan</button>
+    {% endif %}
+</form>
+
+<hr>
+
+{% if form.instance.id %}
+    <div style="margin-top: 20px;">
+        <p>Delete Plan</p>
+      <form method="post" action="{% url 'plan_delete' form.instance.pk %}">
+    {% csrf_token %}
+    <button type="submit" style="color: white; background-color: red; border: none; padding: 10px;">
+        Delete Plan
+    </button>
+</form>
+
+    </div>
+
+
+{% endif %}
+
+{% endblock content %}
